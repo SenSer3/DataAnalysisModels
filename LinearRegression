@@ -1,0 +1,30 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+import random
+
+df = pd.read_csv("train.csv")
+
+
+df = df.drop(columns=['Ticket','PassengerId',"Fare","Name","Cabin",'Embarked',"Pclass"])
+
+df = df.dropna()
+
+dum = pd.get_dummies(df,columns=['Sex'],dtype='int64')
+print(dum)
+
+X = dum[['Age', 'SibSp' , 'Parch' , 'Sex_female',  'Sex_male']]
+Y = dum['Survived']
+print(X)
+print(Y)
+sns.scatterplot(data=dum)
+plt.plot(X,Y)
+
+random.seed(1)
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y)
+reg = LinearRegression()
+reg.fit(X_train, Y_train)
+print(reg.score(X_test,Y_test))
