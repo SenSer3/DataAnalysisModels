@@ -30,11 +30,11 @@ Features
         
 Example Outputs(using Age, SibSp, Parch, and Gender)
 --------
-Linear Regression
-Score: 0.344
+**Linear Regression**
+    Score: 0.344
 --------
-k-Nearest Neighbors
-Accuracy: 76.74%
+**k-Nearest Neighbors**
+    Accuracy: 76.74%
 --------
-Logistic Regression
-Accuracy: 80.00%
+**Logistic Regression**
+    Accuracy: 80.00%
